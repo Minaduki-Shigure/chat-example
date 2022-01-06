@@ -23,6 +23,8 @@
     <script src="/socket.io/socket.io.js"></script>
 
     <script>
+      var name = prompt("请输入你的昵称：");
+      
       var socket = io();
 
       var messages = document.getElementById('messages');
@@ -32,7 +34,7 @@
       form.addEventListener('submit', function(e) {
         e.preventDefault();
         if (input.value) {
-          socket.emit('chat message', input.value);
+          socket.emit('chat message', name + '说：' + input.value);
           input.value = '';
         }
       });
